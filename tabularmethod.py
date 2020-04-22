@@ -1,4 +1,4 @@
-def count_1(string): # 1 개수 세기
+def count_1(string): # 1 개수 세기 #20191581 김하연
     count=0
     for i in range(len(string)):
         if string[i]=="1":
