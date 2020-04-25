@@ -9,7 +9,7 @@ def similar(string1,string2): #1 차이가 나는지 안 나는지, 차이가 �
     count=0
     index=-1
     string=string1
-    for i in range(arg):# (요소 개수는 이진수의 길이임)첫문자부터 끝문자까지 비교하며 다른 부분을 센다.
+    for i in range(arg):# (입력 개수는 이진수의 길이임)첫문자부터 끝문자까지 비교하며 다른 부분을 센다.
         if string1[i]!=string2[i]:
             index=i # 다른 부분의 index를 저장한다.
             count+=1
@@ -36,11 +36,11 @@ while True:
         break
 big_str ="" #현재 입력받은 입력의 개수에서 가장 큰 minterm의 숫자
 for i in range(arg):
-    big_str+="1" 
-big_min = int(big_str,2) #이진수에서 십진수로 변환해 저장 
+    big_str+="1"
+big_min = int(big_str,2) #이진수에서 십진수로 변환해 저장
 
 while True:
-    minterm = int(input("몇 번 minterm이 1인지 입력하세요. m1이면 1을 입력하세요.\n 음수나 가장 큰 minterm 개수보다 큰 값을 넣으면 종료."))
+    minterm = int(input("몇 번 minterm이 1인지 입력하세요. (Don't care도 입력)\nm1이면 1을 입력하세요.\n 음수나 가장 큰 minterm 개수보다 큰 값을 넣으면 종료."))
     if minterm<0 or minterm>big_min: # 음수나 big_min 보다 큰 값일 때 입력 종료.
         break
     else:
@@ -67,7 +67,7 @@ for i in range(arg+1):
 
 print(dic)
 
-#PI를 찾는 과정에서 서로 묶이지 않은 요소들 중 한 번도 묶이지 않은 요소만 추가해야하므로 
+#PI를 찾는 과정에서 서로 묶이지 않은 요소들 중 한 번도 묶이지 않은 요소만 추가해야하므로
 #한번이라도 match된 것은 matches에 한번이라도 묶이지 않은 것은 nonmatches에 추가.
 nonmatches=[]
 matches=[]
@@ -76,7 +76,7 @@ pi_arr=[]#pi들을 저장.
 
 while(True):
     count=0
-    for i in range(arg):#i번째 key의 리스트 안 요소들과 i+1번째 key의 리스트 안 요소들을 similar함수를 통해 비교 
+    for i in range(arg):#i번째 key의 리스트 안 요소들과 i+1번째 key의 리스트 안 요소들을 similar함수를 통해 비교
         for j in range(len(dic[i])):
             for k in range(len(dic[i+1])):
                 a,b = similar(dic[i][j],dic[i+1][k])#a는 boolean 값, b는 string
@@ -121,3 +121,6 @@ for i in range(len(pi)):
     pi[i] = convert(pi[i])
 
 print(pi) # pi 도출
+
+for i in range(len(pi)):
+    print(i+1,"번째 pi는 ",pi[i],"\n")
